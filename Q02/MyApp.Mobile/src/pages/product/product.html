@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="sky">
+    <ion-title text-center>
+      สินค้า
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid style="background-color: #4a9ff5;color: #ffff;">
+    <ion-row>
+      <ion-col col-3>
+        #
+      </ion-col>
+      <ion-col col-3>
+        ชื่อสินค้า
+      </ion-col>
+      <ion-col col-3>
+        ราคา
+      </ion-col>
+      <ion-col col-3>
+        ตัวเลือก
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div *ngIf="stocks.length == 0" style="margin-top: 20%;" text-center>
+    <H1>ไม่มีสินค้า</H1>
+  </div>
+  <ion-list>
+    <ion-item *ngFor="let item of stocks;let i = index">
+      <ion-row>
+        <ion-col col-3>
+          {{i+1}}
+        </ion-col>
+        <ion-col col-3>
+          {{item.name}}
+        </ion-col>
+        <ion-col col-3>
+          {{item.price | number}}
+        </ion-col>
+        <ion-col col-3>
+          <button ion-button outline (click)="AddCart(item)">เพิ่มสินค้าลงตระกร้า</button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+</ion-content>

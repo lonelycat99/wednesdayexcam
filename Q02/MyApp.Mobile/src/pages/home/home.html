@@ -1,14 +1,31 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-navbar color="sky">
+    <ion-title text-center>เพิ่มรายการสินค้า</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-card>
+
+    <ion-card-header>
+      <ion-list>
+        <ion-item>
+          <ion-label stacked>ชื่อสินค้า</ion-label>
+          <ion-input type="text" [(ngModel)]="product.name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label stacked>ราคาสิ้นค้า</ion-label>
+          <ion-input type="number" [(ngModel)]="product.price"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-header>
+
+    <ion-card-content>
+      <button ion-button block outline (click)="AddStocks()" color="sky">เพิ่มสินค้า</button>
+    </ion-card-content>
+
+  </ion-card>
+
+
 </ion-content>

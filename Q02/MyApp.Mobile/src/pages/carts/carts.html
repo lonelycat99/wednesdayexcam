@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-navbar color="sky">
+    <ion-title text-center>
+      ตระกร้าสินค้า
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-list>
+        <ion-item>
+          <ion-label stacked>ชื่อสินค้า</ion-label>
+          <ion-input type="text" placeholder="{{productName}}" [disabled]="true"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>จำนวนสินค้า</ion-label>
+          <ion-input type="number" [(ngModel)]="amountItem"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-header>
+    <ion-card-content>
+      <button ion-button full color="sky" (click)="AddToCart()">เพิ่มสินค้าลงตระกร้า</button>
+    </ion-card-content>
+  </ion-card>
+  <ion-grid style="background-color: #4a9ff5;color: #ffff;">
+    <ion-row text-center>
+      <ion-col>
+        #
+      </ion-col>
+      <ion-col>
+        ชื่อสินค้า
+      </ion-col>
+      <ion-col>
+        ราคาต่อหน่วย
+      </ion-col>
+      <ion-col>
+        จำนวนสินค้า
+      </ion-col>
+      <ion-col>
+        ราคารวม
+      </ion-col>
+      <ion-col>
+        ส่วนลด
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+    <ion-item *ngFor="let items of carts;let i = index">
+      <ion-row text-center>
+        <ion-col>
+          {{i+1}}
+        </ion-col>
+        <ion-col>
+          {{items.item.name}}
+        </ion-col>
+        <ion-col>
+          {{items.item.price | number}}
+        </ion-col>
+        <ion-col>
+          {{items.amount | number}}
+        </ion-col>
+        <ion-col>
+          {{items.total | number}}
+        </ion-col>
+        <ion-col>
+          {{items.discount | number}}
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+  <ion-grid style="background-color: #4a9ff5;color: #ffff;">
+    <ion-row text-center>
+      <ion-col col-10 text-right>
+        ยอดรวมทุกรายการก่อนหักส่วนลด|
+      </ion-col>
+      <ion-col text-left>
+        {{noDiscounts | number}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-10 text-right>
+        ยอดเงินที่ต้องจ่ายหลังหักส่วนลดแล้ว|
+      </ion-col>
+      <ion-col text-left>
+        {{shouldPaid | number}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,18 +1,29 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>
-      Ionic Blank
+  <ion-navbar color="sky">
+    <ion-title text-center>
+      คำนวณอัตราดอกเบี้ย
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-list inset>
-    <ion-item>
-      <ion-input type="number" placeholder="กำหนดอัตรดอกเบี้ย" [(ngModel)]="InterestRate"></ion-input>
-    </ion-item>
-  </ion-list>
-  <button ion-button color="primary" block outline (click)="goAnnualPage()">Submit</button>
+  <ion-card>
 
-  
+    <ion-card-header>
+      <ion-list inset>
+        <ion-item>
+          <ion-input type="number" placeholder="กำหนดอัตรดอกเบี้ย(%)" [(ngModel)]="InterestRate"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-header>
+
+    <ion-card-content>
+      <button ion-button color="primary" block outline (click)="goAnnualPage()">ยืนยัน</button>
+    </ion-card-content>
+
+  </ion-card>
+
+
+
+
 </ion-content>
